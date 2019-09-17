@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'landing_pages#home'
   get 'landing_pages/home'
   get 'landing_pages/event'
   get 'landing_pages/signin'
