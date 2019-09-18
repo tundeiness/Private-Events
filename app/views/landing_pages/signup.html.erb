@@ -1,2 +1,23 @@
-<h1>LandingPages#signup</h1>
-<p>Find me in app/views/landing_pages/signup.html.erb</p>
+<h1>Sign up</h1>
+
+<div class='row'>
+    <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:landing_pages, url: signup_path) do |f| %>
+      <div class='form-group'>
+        <%= f.label :name, class:'form-label' %>
+        <%= f.email_field :name, class: 'form-control' %>
+
+        <%= f.label :email, class:'form-label' %>
+        <%= f.email_field :email, class: 'form-control' %>
+  
+        <%= f.label :password, class:'form-label' %>
+        <%= f.password_field :password, class: 'form-control' %>
+
+        <%= f.label :password_confirmation, "Confirmation", class:'form-label' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+  
+        <%= f.submit "Sign up", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+</div>

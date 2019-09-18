@@ -81,7 +81,7 @@ font-size: 1.7em;
 color: #fff;
 text-transform: uppercase;
 letter-spacing: -1px;
-padding-top: 9px;
+padding-top: 12px;
 font-weight: bold;
 }
 
@@ -90,13 +90,37 @@ color: #fff;
 text-decoration: none;
 }
 
-
-
+.btn{
+    width:100%;
+    margin-top: 25px;
+}
+.form-label{
+    margin-top: 15px;
+    font-size: 14px;
+}
+.nav-li{
+    font-size: 14px;
+    font-weight:600;
+}
 .nav-li:hover {
     // text-decoration:underline;
     // text-decoration-style: solid;
      background-color: rgba(50, 115, 220, 0.3);
   
+}
+.img-background{
+    background: url('calendar.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 780px; 
+    width: auto;
+    display:flex;
+
+}
+.main-div{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 

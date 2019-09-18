@@ -1,2 +1,18 @@
-<h1>LandingPages#signin</h1>
-<p>Find me in app/views/landing_pages/signin.html.erb</p>
+<h1>Sign in</h1>
+
+<div class='row'>
+    <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:landing_pages, url: signin_path) do |f| %>
+      <div class='form-group'>
+
+        <%= f.label :email, class:'form-label' %>
+        <%= f.email_field :email, class: 'form-control' %>
+  
+        <%= f.label :password, class:'form-label' %>
+        <%= f.password_field :password, class: 'form-control' %>
+  
+        <%= f.submit "Sign in", class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+</div>
