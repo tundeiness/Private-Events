@@ -1,13 +1,13 @@
 <div class="container-fluid">
     <header class="navbar navbar-fixed-top navbar-inverse">
         <div class="container">
-            <%= link_to "Private Events", '/home', id: "logo" %>
+            <%= link_to "Private Events", home_path, id: "logo" %>
               <nav>
                   <ul class="nav navbar-nav navbar-right">
-                      <li class="nav-li"><%= link_to "Home", '/home' %></li>
-                      <li class="nav-li"><%= link_to "Events", '/event' %></li>
-                      <li class="nav-li"><%= link_to "Signin", '/signin' %></li>
-                      <li class="nav-li"><%= link_to "Signup", '/signup' %></li>
+                      <li class="nav-li"><%= link_to "Home", home_path %></li>
+                      <li class="nav-li"><%= link_to "Events", event_path %></li>
+                      <li class="nav-li"><%= link_to "Signin", signin_path %></li>
+                      <li class="nav-li"><%= link_to "Signup", signup_path %></li>
                   </ul>
               </nav>
         </div>

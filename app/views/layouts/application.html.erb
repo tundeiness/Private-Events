@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
+
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
@@ -17,10 +17,10 @@
         <%= link_to "private event", '#', id: "logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",   '#' %></li>
-            <li><%= link_to "Events",   '#' %></li>
-            <li><%= link_to "Sign in", '#' %></li>
-            <li><%= link_to "Sign up", '#' %></li>
+            <li><%= link_to "Home",   home_path %></li>
+            <li><%= link_to "Events",   event_path %></li>
+            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to "Sign up", signup_path %></li>
           </ul>
         </nav>
       </div>
