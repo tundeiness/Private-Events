@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
 
   context 'name length' do
     it 'should not be longer than 50 characters' do
-     @user.name = 'a' * 51
+      @user.name = 'a' * 51
       expect(@user).to_not be_valid
    end
   end
