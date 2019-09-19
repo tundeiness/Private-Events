@@ -21,10 +21,17 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'length validations' do
-   it 'should not allow a name longer than 50 characters' do
-    @user.name = 'a' * 51
-    expect(@user).to_not be_valid
+  context 'name length' do
+    it 'should not be longer than 50 characters' do
+     @user.name = 'a' * 51
+      expect(@user).to_not be_valid
    end
+  end
+
+  context 'email length' do
+    it 'should not be longer than 255 characters' do
+      @user.email = "a" * 244 + "@example.com"
+      expect(@user).to_not be_valid
+    end
   end
 end
