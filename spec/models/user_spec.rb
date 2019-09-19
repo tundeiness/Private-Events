@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  before(:each) do
+    @user = User.create(name: 'Another User', email: 'auser@example.com ')
+  end
+
   context 'name and email is not present' do
     subject { User.create(name: ' ', email: ' ') }
     #byebug
@@ -17,11 +21,10 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context 'name should not be too long' do
-  #muser = User.create(name: 'Another User', email: 'auser@example.com ')
-  usename = 49
-   it 'is too long' do
-     expect(usename).to be_within(10).of(51)
+  context 'length validations' do
+   it 'should not allow a name longer than 50 characters' do
+    @user.name = 'a' * 51
+    expect(@user).to_not be_valid
    end
   end
 end
