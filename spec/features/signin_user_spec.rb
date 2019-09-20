@@ -6,8 +6,13 @@ RSpec.feature User, type: :feature do
     mock_user = User.create(name:'test',
                   email: 'test@gmail.com',
                   password: '123456789')
+    #let(:name) { FactoryGirl.create(name: name) }
+    #let(:email) { FactoryGirl.create(email: email) }
+    #let(:password) { FactoryGirl.create(password: password) }
     visit signin_path
-    #fill_in :email, with: 'test@gmail.com'
+    #fill_in('Email', with: mock_user.email)
+    #fill_in('email', with: 'test@gmail.com')
+
     #fill_in :password, with: '123456789'
     find('#session_email').set('test@gmail.com')
     #find('#session_password').set('123456789')
