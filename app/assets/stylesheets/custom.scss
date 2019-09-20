@@ -206,3 +206,18 @@ margin-left: 15px;
   .gravatar_edit {
     margin-top: 15px;
   }
+
+  .checkbox {
+  margin-top: 20px;
+
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+    font-size: 14px;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
