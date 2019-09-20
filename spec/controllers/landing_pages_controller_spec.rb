@@ -29,4 +29,5 @@ describe LandingPagesController do
         expect(response).to render_template(:signup)
         end    
     end
+
 end
