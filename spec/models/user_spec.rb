@@ -59,7 +59,4 @@ RSpec.describe User, type: :model do
     let(:password_confirmation){"a" * 5}
     it{ is_expected.to_not be_valid }
   end
-
-  
-
 end
