@@ -22,7 +22,8 @@ RSpec.feature User, type: :feature do
     #page.find("#session_email").click
    # page.find("#session_password").click
      mock_user.reload
-    expect(mock_user.email).to eq(mock_user.email)
-    expect(mock_user.password).to eq(mock_user.password)
+     expect(page).to have_content('Welcome')
+    #expect(mock_user.email).to eq(mock_user.email)
+    #expect(mock_user.password).to eq(mock_user.password)
   end
 end
