@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'landing_pages#home'
   get '/home', to: 'landing_pages#home'
   get '/event', to: 'landing_pages#event'
- 
+
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
