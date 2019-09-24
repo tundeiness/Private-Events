@@ -123,6 +123,10 @@ text-decoration: none;
     margin-left: auto;
 }
 
+.home-header{
+  font-size:20px;
+  color:#222;
+}
 
 
 /* footer */
@@ -318,4 +322,14 @@ nav{
   width: 50%;
   margin-left:auto;
   margin-right: auto;
+}
+
+.event-header{
+  text-align: center;
+  font-size: 26px;
+  color: #222;  
+}
+
+.new-event{
+  padding: 20px 20px;
 }

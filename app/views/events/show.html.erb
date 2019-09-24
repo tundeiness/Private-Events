@@ -1,23 +1,25 @@
 <h1>Event Creator: <%= link_to @event.creator.name,user_path %></h1>
 
-<h2><%=@event.title %></h2>
+<h3 class='event-header'><%=@event.title %></h3>
 
 <div class="row">
     <div class='event-page'>
       <p><%= @event.description %></p>
         <span>Event location: <%= @event.location %></span>
-        <span>Event date: <%= @event.date.strftime("%Y/%m/%d") %><span>
+        <span>Event date: <%= @event.date.strftime("%Y/%m/%d") %></span>
 
         <% if @event.attendees.any? %>
             <% @event.attendees.each do |attendee| %>
                 <span class="attendee">
-                    <%= attendee.name %>
-                </span> <br/>
+                Attendee:  <%= attendee.name %>
+                </span>
+                <br/>
             <% end %>
         <% else %>
             No attendees
         <% end %><br/>
 </div>
+
 
 <div class="div">
 <%= render 'attend_cancel' %>       

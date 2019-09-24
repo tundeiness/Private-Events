@@ -18,5 +18,3 @@ RSpec.feature "SignIns", type: :feature do
     end
   end
 end
-
-
