@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_many :created_events, class_name: 'Event', foreign_key: 'creator_id'
+  
   attr_accessor :remember_token
 
   validates :name, presence: true, length: 4..20

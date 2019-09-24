@@ -1,14 +1,18 @@
 <% provide(:title, @user.name) %>
+
+<div class='main'>
+<div class='aside-col container'>
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-12">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
+    <%= gravatar_for @user %>
+      <h1> 
         Welcome <%= @user.name %>
       </h1>
     </section>
   </aside>
-  <section class="col-md-8">
+
+  <section class="col-md-12">
     <div class="row">
       <section class="col-md-12">
         <%= @user.name %>
@@ -19,3 +23,28 @@
     </div>
   </section>
 </div>
+<button type="button" class="btn btn-dark btn-lg"><%= link_to "Create event", new_event_path %></button>
+</div>
+
+<div class="events-col container">
+  <div class="row">
+    <div class="col-md-12">
+    <h2 class='events-header'> Events for <%= @user.name %></h2>
+    
+    <% @user.created_events.each do |event| %>
+      <div class='event'>
+        <h3 class='featurette-heading'><%= event.title%></h3>
+          <div class='event-body'>
+            <p><%= event.description%></p>
+            <div class='event-details'>
+            <span>Event location: <%= event.location%></span>
+            <span>Event date: <%= event.date%></span>
+            </div>
+          </div>
+        </div>  
+    <% end %>
+    </div>
+  </div>
+</div> 
+</div>
+
