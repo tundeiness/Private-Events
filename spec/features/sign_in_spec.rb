@@ -14,7 +14,7 @@ RSpec.feature "SignIns", type: :feature do
       click_button('Sign in')
 
       expect(page).to have_css '.user_info'
-      expect(page).to have_content `Welcome" #{@mock_user.name}`
+      expect(page).to have_content `Welcome #{@mock_user.name}`
     end
   end
 end
