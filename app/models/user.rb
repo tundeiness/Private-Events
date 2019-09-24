@@ -1,6 +1,8 @@
 class User < ApplicationRecord
 
   has_many :created_events, class_name: 'Event', foreign_key: 'creator_id'
+  has_many :event_attendees, foreign_key: 'attendee_id'
+  has_many :attended_events, through: :event_attendees
   
   attr_accessor :remember_token
 
@@ -35,4 +37,13 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def upcoming_events
+    self.attended_events.upcoming
+  end
+  
+  def previous_events
+    self.attended_events.past
+  end	
+  
 end

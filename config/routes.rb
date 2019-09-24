@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'users/new'
   
   get '/home', to: 'landing_pages#home'
-  get '/event', to: 'events#show'
 
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
