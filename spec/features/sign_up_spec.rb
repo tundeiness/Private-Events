@@ -1,5 +1,5 @@
 require 'rails_helper'
-require 'capybara/rspec'
+#require 'capybara/rspec'
 
 RSpec.feature "Signup", type: :feature do
 

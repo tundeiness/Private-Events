@@ -61,6 +61,7 @@ group :development, :test do
   # of interacting with the browser.
   gem 'webdrivers', '~> 4.0'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
 
 group :development do
