@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-RSpec.feature "SignIns", type: :feature do
+RSpec.feature 'SignIns', type: :feature do
   feature 'User signs in' do
     scenario 'with registered email' do
       @mock_user = User.create(name:'test',
