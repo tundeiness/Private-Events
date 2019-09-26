@@ -1,25 +1,14 @@
-<div class="container-fluid">
-    <header class="navbar navbar-fixed-top navbar-inverse">
-        <div class="container">
-            <%= link_to "Private Events", home_path, id: "logo" %>
-              <nav>
-                  <ul class="nav navbar-nav navbar-right">
-                      <li class="nav-li"><%= link_to "Home", home_path %></li>
-                      <li class="nav-li"><%= link_to "Events", events_path %></li>
-                      <li class="nav-li"><%= link_to "Signin", signin_path %></li>
-                      <li class="nav-li"><%= link_to "Signup", signup_path %></li>
-                  </ul>
-              </nav>
-        </div>
-    </header>
 
     <main class="center jumbotron jumbotron-fluid img-background">
     <div class='main-div'>
       <h1>Plan your Events now</h1>
-      <h2>This is the home page for the
+      <h3 class='home-header'>This is the home page for the
           <a href="http://www.railstutorial.org/">Private Events</a> application.
-      </h2>
+      </h3>
+      <% if signed_in? %>
+      <% else %>
       <%= link_to "Create an Event", '/signin', class: "btn btn-lg btn-primary btn-lg" %>
+      <% end %>
       </div>
     </main>
 

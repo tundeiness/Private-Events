@@ -2,7 +2,10 @@ require 'rails_helper'
 require 'capybara/rspec'
 
 RSpec.feature 'SignIns', type: :feature do
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d36ce64fa941d89f6dc182548d194166f04275a
   feature 'User signs in' do
     scenario 'with registered email' do
       @mock_user = User.create(name: 'Michael Hartl',
@@ -15,6 +18,7 @@ RSpec.feature 'SignIns', type: :feature do
 
       expect(page).to have_css '.user_info'
     end
+<<<<<<< HEAD
 
     scenario 'with an unregistered email' do
       visit signin_path
@@ -42,5 +46,7 @@ RSpec.feature 'SignIns', type: :feature do
 
       expect(page).to have_content 'Invalid email/password combination'
     end
+=======
+>>>>>>> 0d36ce64fa941d89f6dc182548d194166f04275a
   end
 end

@@ -1,3 +1,61 @@
-// Place all the styles related to the Events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+  .events-header {
+    font-size: 40px;
+    color: #222;
+  }
+
+  .event{
+    display:flex;
+    border: 1px solid #333; 
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  
+    h3{
+      text-align: center;
+    }
+  
+    p{
+      font-size:18px;
+    }
+    span{
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .event-body{
+      width:95%;
+      padding:10px;
+    }
+    .event-details{
+      display:flex;
+      justify-content: space-between;
+    }
+  }
+
+ .row{
+     margin-left:0!important;
+     margin-right: 0!important;
+ } 
+
+.event-page{
+    font-size:16px;
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left:auto;
+    margin-right: auto;
+  }
+  
+  .event-header{
+    text-align: center;
+    font-size: 26px;
+    color: #222;  
+  }
+
+  .new-event{
+    padding: 20px 20px;
+  }

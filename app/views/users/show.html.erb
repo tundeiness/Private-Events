@@ -2,9 +2,9 @@
 
 <div class='main'>
 <div class='aside-col container'>
-<div class="row">
-  <aside class="col-md-12">
-    <section class="user_info">
+<div class='row'>
+  <aside class='col-md-12'>
+    <section class='user_info'>
     <%= gravatar_for @user %>
       <h1> 
         Welcome <%= @user.name %>
@@ -12,39 +12,53 @@
     </section>
   </aside>
 
-  <section class="col-md-12">
-    <div class="row">
-      <section class="col-md-12">
-        <%= @user.name %>
-      </section>
-      <article class="col-md-12">
-        <%= @user.name %>
-      </article>
-    </div>
-  </section>
-</div>
-<button type="button" class="btn btn-dark btn-lg"><%= link_to "Create event", new_event_path %></button>
+  </div>
+<button type='button' class='btn btn-dark btn-lg'><%= link_to 'Create event', new_event_path %></button>
 </div>
 
-<div class="events-col container">
-  <div class="row">
-    <div class="col-md-12">
+
+<div class='events-col container'>
+  <div class='row'>
+    <div class='col-md-12'>
     <h2 class='events-header'> Events for <%= @user.name %></h2>
     
-    <% @user.created_events.each do |event| %>
+    <h3>Attending Events</h3>
+      <% @user.attended_events.each do |attended| %>
+      <h3 class='event-header'><%= link_to attended.title, event_path(attended)  %></h3> 
+      <% end %>
+
+    <h3>Future Events</h3>
+ 
+    <% Event.upcoming.each do |event| %>
       <div class='event'>
-        <h3 class='featurette-heading'><%= event.title%></h3>
+        <h3 class='featurette-heading'><%= link_to event.title, event_path(event)%></h3>
           <div class='event-body'>
             <p><%= event.description%></p>
             <div class='event-details'>
             <span>Event location: <%= event.location%></span>
-            <span>Event date: <%= event.date%></span>
+            <span>Event date: <%= event.date.strftime('%Y/%m/%d')%></span>
             </div>
           </div>
         </div>  
     <% end %>
-    </div>
+
+    <h3>Past Events</h3>
+ 
+    <% Event.past.each do |event| %>
+      <div class='event'>
+        <h3 class='featurette-heading'><%= link_to event.title, event_path(event)%></h3>
+          <div class='event-body'>
+            <p><%= event.description%></p>
+            <div class='event-details'>
+            <span>Event location: <%= event.location%></span>
+            <span>Event date: <%= event.date.strftime('%Y/%m/%d')%></span>
+            </div>
+          </div>
+        </div>  
+    <% end %>
+
   </div>
 </div> 
 </div>
+
 

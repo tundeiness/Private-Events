@@ -1,20 +1,44 @@
 
 <div class="row">
   
-    <h1> All Events </h1>
+    <h1>Future Events</h1>
   
   <div class='event-body'>
-  <% @events.each do |event| %>
+  <% Event.upcoming.each do |event| %>
     <div class='event'>
-      <h3 class='featurette-heading'><%= event.title%></h3>
+
+      <h3 class='featurette-heading'><%= link_to event.title, event_path(event)%></h3>
       <div class='event-body'>
       <p><%= event.description %></p>
       <div class='event-details'>
         <span>Event location: <%= event.location %></span>
-        <span>Event date: <%= event.date %><span>
+        <span>Event date: <%= event.date.strftime("%Y/%m/%d") %><span>
       </div>
       </div>
       </div>
   <% end %>
-
 </div>
+
+<div class="row">
+  
+    <h1>Past Events</h1>
+  
+  <div class='event-body'>
+  <%  Event.past.each do |event| %>
+    <div class='event'>
+
+      <h3 class='featurette-heading'><%= link_to event.title, event_path(event)%></h3>
+      <div class='event-body'>
+      <p><%= event.description %></p>
+      <div class='event-details'>
+        <span>Event location: <%= event.location %></span>
+        <span>Event date: <%= event.date.strftime("%Y/%m/%d") %><span>
+      </div>
+      </div>
+      </div>
+  <% end %>
+</div>
+
+
+
+

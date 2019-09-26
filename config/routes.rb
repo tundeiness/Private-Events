@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'users/new'
   
   get '/home', to: 'landing_pages#home'
-  get '/event', to: 'events#show'
 
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
@@ -19,5 +18,6 @@ Rails.application.routes.draw do
   post '/newevent', to: 'events#create'
   resources :users
   resources :events, only: [:index, :show, :create, :new]
+  resources :event_attendees, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
