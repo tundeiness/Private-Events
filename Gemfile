@@ -52,7 +52,7 @@ group :development, :test do
   # The RSpec testing framework
   gem 'rspec-rails', '~> 3.8'
   gem 'pry'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'faker'
   # Capybara, the library that allows us to interact with the browser using Ruby
   gem 'capybara'
@@ -61,6 +61,7 @@ group :development, :test do
   # of interacting with the browser.
   gem 'webdrivers', '~> 4.0'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
 
 group :development do
