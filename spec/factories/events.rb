@@ -4,8 +4,7 @@ FactoryBot.define do
     description { 'A get together party for noob developers' }
     date { '2019-09-23 14:46:24' }
     location { 'Arkansas' }
-    #creator { 1 }
-    #creator_id { params[:id] }
+    association :creator, factory: :user
   end
 
   factory :random_event, class: Event do
@@ -13,6 +12,6 @@ FactoryBot.define do
     description { Faker::Description.description }
     date { Faker::Date.date }
     location { Faker::Location.location }
-    #creator_id { 1..20 }
+    association :creator, factory: :user
   end
 end

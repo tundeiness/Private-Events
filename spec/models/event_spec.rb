@@ -54,7 +54,6 @@ RSpec.describe Event, type: :model do
         event.description = 'The developer purge'
         event.date = DateTime.now
         event.location = 'San francisco'
-        #event.creator = :event_creator
         expect(event.save).to eq(true)
       end
 
