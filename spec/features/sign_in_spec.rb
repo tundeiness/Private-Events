@@ -17,6 +17,36 @@ RSpec.feature 'SignIns', type: :feature do
       click_button('Sign in')
 
       expect(page).to have_css '.user_info'
+<<<<<<< HEAD
+=======
+    end
+
+    scenario 'with an unregistered email' do
+      visit signin_path
+      fill_in 'Email', with: 'test@example.com'
+      fill_in 'Password', with: '123456789'
+      click_button('Sign in')
+
+      expect(page).to have_content 'Invalid email/password combination'
+    end
+
+    scenario 'with a valid user and without a password' do
+      visit signin_path
+      fill_in 'Email', with: 'mhartl@example.com'
+      fill_in 'Password', with: ' '
+      click_button('Sign in')
+
+      expect(page).to have_content 'Invalid email/password combination'
+    end
+
+    scenario 'without a user and without a password' do
+      visit signin_path
+      fill_in 'Email', with: ' '
+      fill_in 'Password', with: ' '
+      click_button('Sign in')
+
+      expect(page).to have_content 'Invalid email/password combination'
+>>>>>>> event-attending
     end
 <<<<<<< HEAD
 
