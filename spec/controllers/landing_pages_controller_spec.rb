@@ -8,12 +8,4 @@ describe LandingPagesController do
         expect(response).to render_template(:home)
         end
     end
-
-    describe 'GET event' do
-        it 'renders :event template' do
-            get :event
-        expect(response).to render_template(:event)
-        end
-    end
-
 end
