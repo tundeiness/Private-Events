@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.feature 'SignIns', type: :feature do
   feature 'User signs in' do
     scenario 'with registered email' do

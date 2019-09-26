@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   context 'Validation tests' do
     let(:user) { build(:user) }
     it 'ensures name presence' do
@@ -34,7 +33,7 @@ RSpec.describe User, type: :model do
     it 'ensures valid email format' do
       user.name = 'Don Pablo'
       user.email = %w[user@example,com user_at_foo.org user.name@example.
-        foo@bar_baz.com foo@bar+baz.com]
+                      foo@bar_baz.com foo@bar+baz.com]
       expect(user.save).to eq(false)
     end
 
@@ -59,7 +58,6 @@ RSpec.describe User, type: :model do
       user.password_confirmation = 'barbaz'
       expect(user.save).to eq(true)
     end
-
   end
 
   context 'Association tests' do
@@ -79,7 +77,5 @@ RSpec.describe User, type: :model do
         expect(assc.macro).to eq :has_many
       end
     end
-
   end
 end
-

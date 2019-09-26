@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'events managments', type: :feature do
-
   scenario 'events have Past events index' do
     visit events_path
     sleep(2)

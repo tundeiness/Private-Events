@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.feature "Signup", type: :feature do
-
+RSpec.feature 'Signup', type: :feature do
   feature 'User signs up' do
     scenario 'with name, password and password confirmation only' do
       @mock_user = User.create(
         name: 'mark Greyhound',
         email: 'mg@example.com',
         password: 'foobaz',
-        password_confirmation: 'foobaz')
+        password_confirmation: 'foobaz'
+      )
       visit signup_path
       sleep(2)
       fill_in 'Name', with: @mock_user.name
@@ -25,7 +25,8 @@ RSpec.feature "Signup", type: :feature do
         name: 'mark Greyhound',
         email: 'mg@example.com',
         password: 'foobaz',
-        password_confirmation: 'foobaz')
+        password_confirmation: 'foobaz'
+      )
       visit signup_path
       sleep(2)
       fill_in 'Name', with: ' '
@@ -42,7 +43,8 @@ RSpec.feature "Signup", type: :feature do
         name: 'mark Greyhound',
         email: 'mg@example.com',
         password: 'foobaz',
-        password_confirmation: 'foobaz')
+        password_confirmation: 'foobaz'
+      )
       visit signup_path
       sleep(2)
       fill_in 'Name', with: @mock_user.email
@@ -59,7 +61,8 @@ RSpec.feature "Signup", type: :feature do
         name: 'mark Greyhound',
         email: 'mg@example.com',
         password: 'foobaz',
-        password_confirmation: 'foobaz')
+        password_confirmation: 'foobaz'
+      )
       visit signup_path
       sleep(2)
       fill_in 'Name', with: @mock_user.email
@@ -72,4 +75,3 @@ RSpec.feature "Signup", type: :feature do
     end
   end
 end
-
