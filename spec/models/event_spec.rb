@@ -2,75 +2,62 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
 
-  let(:creator) { User.new(:email => 'mhartl@example.com', :password => 'foobar',
-    :password_confirmation => 'foobar') }
 
-    subject(:event) do
-      described_class.new title: title, description: description, date: date, location: location,
-      creator_id: creator.id
-    end
+    context 'Validation tests' do
 
-    let(:title) { 'Katherine' }
-    let(:description) { 'Kathy@yahoo.co.uk' }
-    let(:date) { '11/12/2019' }
-    let(:location) { 'foobar' }
+      let(:event) { build(:event) }
 
+      it 'ensures title is provided' do
+        event.title = nil
+        expect(event.save).to eq(false)
+      end
 
-    context 'with a title that is blank' do
-      #let(:user) { build(:user) }
-      let(:title) { ' ' }
-      it { is_expected.to_not be_valid }
-    end
+      it 'checks title with over 30 characters' do
+        event.title = 'Antidisestermentarialism...really really long title'
+        expect(event.save).to eq(false)
+      end
 
-    context 'with an description that is blank' do
-      let(:description) { ' ' }
-      it { is_expected.to_not be_valid }
-    end
+      it 'checks title with less than 4 characters' do
+        event.title = 'xte'
+        expect(event.save).to eq(false)
+      end
 
-    context 'with all fields present' do
-      let(:title) { 'Katherine' }
-      let(:description) { 'Kathy@yahoo.co.uk' }
-      let(:date) { '11/12/2019' }
-      let(:location) { 'foobar' }
-      #let(:creator_id) {creator.id}
-      it { is_expected.to be_valid }
-    end
+      it 'ensures description is provided' do
+        event.title = 'The groove'
+        event.description = nil
+        expect(event.save).to eq(false)
+      end
 
-    context 'title with over 30 characters' do
-      let(:title) { 'Antidisestermentarialism...really really long name' }
-      it { is_expected.to_not be_valid }
-    end
+      it 'checks description with over 400 characters' do
+        event.title = 'The groove'
+        event.description = 'a' * 401
+        expect(event.save).to eq(false)
+      end
 
-    context 'title with less than 4 characters' do
-      let(:title) { 'xte' }
-      it { is_expected.to_not be_valid }
-    end
+      it 'ensures date is provided' do
+        event.title = 'The groove'
+        event.description = 'An open house party'
+        event.date = nil
+        expect(event.save).to eq(false)
+      end
 
-    context 'description with over 400 characters' do
-      let(:description) { 'a' * 401 + '@example.com' }
-      it { is_expected.to_not be_valid }
-    end
+      it 'ensures location is supplied' do
+        event.title = 'The groove'
+        event.description = 'An open house party'
+        event.date = DateTime.now
+        event.location = nil
+        expect(event.save).to eq(false)
+      end
 
-    context 'description format validation' do
-      let(:description) { %w[user@example,com user_at_foo.org user.name@example.
-        foo@bar_baz.com foo@bar+baz.com] }
-      it { is_expected.to_not be_valid }
-    end
+      it 'ensures all fields are present with valid attributes and saves successfully' do
+        event.title = 'A day to remember'
+        event.description = 'The developer purge'
+        event.date = DateTime.now
+        event.location = 'San francisco'
+        #event.creator = :event_creator
+        expect(event.save).to eq(true)
+      end
 
-    context 'with a date (nonblank)' do
-      let(:date) { '11/12/2019' }
-      it { is_expected.to_not be_valid }
-    end
-
-
-    context 'with a location that is blank' do
-      let(:location) { ' ' }
-      it { is_expected.to_not be_valid }
-    end
-
-    context 'with an location' do
-      let(:description){ ' ' }
-      it { is_expected.to_not be_valid }
     end
 
     describe 'Associations' do
