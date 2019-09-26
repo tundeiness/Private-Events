@@ -10,6 +10,7 @@ RSpec.feature "Signup", type: :feature do
         password: 'foobaz',
         password_confirmation: 'foobaz')
       visit signup_path
+      sleep(2)
       fill_in 'Name', with: @mock_user.name
       fill_in 'Email', with: ' '
       fill_in 'Password', with: @mock_user.password
@@ -26,6 +27,7 @@ RSpec.feature "Signup", type: :feature do
         password: 'foobaz',
         password_confirmation: 'foobaz')
       visit signup_path
+      sleep(2)
       fill_in 'Name', with: ' '
       fill_in 'Email', with: @mock_user.email
       fill_in 'Password', with: @mock_user.password
@@ -42,6 +44,7 @@ RSpec.feature "Signup", type: :feature do
         password: 'foobaz',
         password_confirmation: 'foobaz')
       visit signup_path
+      sleep(2)
       fill_in 'Name', with: @mock_user.email
       fill_in 'Email', with: @mock_user.email
       fill_in 'Password', with: @mock_user.password
@@ -58,6 +61,7 @@ RSpec.feature "Signup", type: :feature do
         password: 'foobaz',
         password_confirmation: 'foobaz')
       visit signup_path
+      sleep(2)
       fill_in 'Name', with: @mock_user.email
       fill_in 'Email', with: @mock_user.email
       fill_in 'Password', with: @mock_user.password

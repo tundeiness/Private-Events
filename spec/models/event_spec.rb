@@ -59,21 +59,23 @@ RSpec.describe Event, type: :model do
 
     end
 
-    context 'Associations' do
-      it { should belong_to(:creator) }
+    context 'Association tests' do
+      describe 'model associations' do
+        it 'belongs to creator' do
+          assc = Event.reflect_on_association(:creator)
+          expect(assc.macro).to eq :belongs_to
+        end
+
+        it 'has many attendances' do
+          assc = Event.reflect_on_association(:event_attendees)
+          expect(assc.macro).to eq :has_many
+        end
+
+        it 'has many attendees' do
+          assc = Event.reflect_on_association(:attendees)
+          expect(assc.macro).to eq :has_many
+        end
+      end
     end
 
-    #scope :past, -> { where('date < ?', DateTime.now) }
-   # scope :upcoming, -> { where('date > ?', DateTime.now) }
-
-    context 'scope test' do
-      let(:today) { Date.today }
-
-      let(:past) { create(:event, last_seen: today - 1.days) }
-      let(:upcoming) { create(:event, last_seen: today + 1.days) }
-     # let(:params) {{title: 'code hangout', description: 'A get together party for noob developers',
-     # date: '2019-09-23 14:46:24', location: 'Arkansas'}}
-
-
-    end
 end
