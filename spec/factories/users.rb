@@ -7,7 +7,7 @@ FactoryBot.define do
   end
 
   factory :random_user, class: User do
-    first_name { Faker::Name.name }
+    name { Faker::Name.name }
     email { Faker::Internet.safe_email }
     password { Faker::Password.password }
     password_confirmation { Faker::Password.password_confirmation }

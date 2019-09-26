@@ -1,5 +1,4 @@
 require 'rails_helper'
-#require 'capybara/rspec'
 
 RSpec.feature "Signup", type: :feature do
 
@@ -70,5 +69,3 @@ RSpec.feature "Signup", type: :feature do
   end
 end
 
-
-#user_password_confirmation

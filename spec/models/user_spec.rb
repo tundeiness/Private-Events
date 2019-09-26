@@ -42,15 +42,13 @@ RSpec.describe User, type: :model do
       user.email = 'a' * 244 + '@example.com'
       expect(user.save).to eq(false)
     end
-  end
 
-
-
-  context 'email format validation' do
-    let(:email) { %w[user@example,com user_at_foo.org user.name@example.
-      foo@bar_baz.com foo@bar+baz.com] }
-      it { is_expected.to_not be_valid }
+    it 'ensures valid email format' do
+      user.email = %w[user@example,com user_at_foo.org user.name@example.
+        foo@bar_baz.com foo@bar+baz.com]
+      expect(user.save).to eq(false)
     end
+  end
 
   describe 'Associations' do
     it { should have_many(:created_events) }

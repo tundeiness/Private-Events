@@ -14,10 +14,10 @@ RSpec.describe Event, type: :model do
     let(:description) { 'Kathy@yahoo.co.uk' }
     let(:date) { '11/12/2019' }
     let(:location) { 'foobar' }
-    #let(:creator_id)  {creator.id}
-  # it{is_expected.to be_valid}
+
 
     context 'with a title that is blank' do
+      #let(:user) { build(:user) }
       let(:title) { ' ' }
       it { is_expected.to_not be_valid }
     end
