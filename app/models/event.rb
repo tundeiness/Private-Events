@@ -6,8 +6,8 @@ class Event < ApplicationRecord
   scope :past, -> { where('date < ?', DateTime.now) }
   scope :upcoming, -> { where('date > ?', DateTime.now) }
 
-  validates :title, presence: true, length: { maximum: 30 }
-  validates :description, presence: true, length: { maximum: 400 }
+  validates :title, presence: true, length: 4..30
+  validates :description, presence: true, length: 4..400
   validates :date, presence: true
-  validates :location, presence: true, length: { maximum: 40 }
+  validates :location, presence: true, length: 4..50
 end

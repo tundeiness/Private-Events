@@ -5,7 +5,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token
 
   validates :name, presence: true, length: 4..20
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
 
@@ -38,11 +38,11 @@ class User < ApplicationRecord
   end
 
   def upcoming_events
-    self.attended_events.upcoming
+    attended_events.upcoming
   end
 
   def previous_events
-    self.attended_events.past
+    attended_events.past
   end
 
   def attending?(event)
@@ -50,10 +50,10 @@ class User < ApplicationRecord
   end
 
   def attend!(event)
-    self.event_attendees.create!(attended_event_id: event.id)
+    event_attendees.create!(attended_event_id: event.id)
   end
 
   def cancel!(event)
-    self.event_attendees.find_by(attended_event_id: event.id).destroy
+    event_attendees.find_by(attended_event_id: event.id).destroy
   end
 end
