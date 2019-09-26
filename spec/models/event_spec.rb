@@ -59,7 +59,21 @@ RSpec.describe Event, type: :model do
 
     end
 
-    describe 'Associations' do
+    context 'Associations' do
       it { should belong_to(:creator) }
+    end
+
+    #scope :past, -> { where('date < ?', DateTime.now) }
+   # scope :upcoming, -> { where('date > ?', DateTime.now) }
+
+    context 'scope test' do
+      let(:today) { Date.today }
+
+      let(:past) { create(:event, last_seen: today - 1.days) }
+      let(:upcoming) { create(:event, last_seen: today + 1.days) }
+     # let(:params) {{title: 'code hangout', description: 'A get together party for noob developers',
+     # date: '2019-09-23 14:46:24', location: 'Arkansas'}}
+
+
     end
 end
