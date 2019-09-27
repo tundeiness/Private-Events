@@ -6,7 +6,7 @@
     <div class='event-page'>
       <p><%= @event.description %></p>
         <span>Event location: <%= @event.location %></span>
-        <span>Event date: <%= @event.date.strftime("%Y/%m/%d") %></span>
+        <span>Event date: <%=  @event.date.strftime("%Y/%m/%d") %></span>
 
         <% if @event.attendees.any? %>
             <% @event.attendees.each do |attendee| %>
@@ -21,7 +21,6 @@
 </div>
 
 
-<div class="div">
-<%= render 'attend_cancel' %>       
-</div>
-
+    <div class="div">
+    <%= render 'attend_cancel' %>       
+    </div>

@@ -7,7 +7,7 @@
   <% Event.upcoming.each do |event| %>
     <div class='event'>
 
-      <h3 class='featurette-heading'><%= link_to event.title, event_path(event)%></h3>
+      <h3 class='featurette-heading'><%= event.title%></h3>
       <div class='event-body'>
       <p><%= event.description %></p>
       <div class='event-details'>
@@ -26,8 +26,7 @@
   <div class='event-body'>
   <%  Event.past.each do |event| %>
     <div class='event'>
-
-      <h3 class='featurette-heading'><%= link_to event.title, event_path(event)%></h3>
+      <h3 class='featurette-heading'><%= event.title%></h3>
       <div class='event-body'>
       <p><%= event.description %></p>
       <div class='event-details'>
