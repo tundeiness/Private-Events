@@ -1,0 +1,16 @@
+<div class="row new-event">
+  <div class="col-md-6 form-new-user col-md-offset-3">
+    
+      <%= form_for(@event) do |f| %>
+        <%= f.label :title, class: 'form-label' %><br>
+        <%= f.text_area :title, class: "form-control" %><br>
+        <%= f.label :description, class: 'form-label' %><br>
+        <%= f.text_area :description, class: "form-control" %><br>
+        <%= f.label :location, class: 'form-label' %><br>
+        <%= f.text_area :location, class: "form-control" %><br>
+        <%= f.label :date, class: 'form-label' %><br>
+        <%= f.date_field :date, class: "form-control" %><br>
+        <%= f.submit 'Create', class: 'btn btn-primary' %>
+      <% end %> 
+  </div>
+</div> 

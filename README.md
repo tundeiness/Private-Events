@@ -1,24 +1,40 @@
-# README
+# Private Events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Table of Contents
 
-Things you may want to cover:
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+* [Contributors](#contributing)
 
-* Ruby version
+## About the project
 
-* System dependencies
+Private Events app is build similar to a private Eventbrite, which allows users to create events and manage user signups. Users can create events and attend them. Events take place at a specific date and at a location. Only signed up user can create events. A user can attend many events and an event can be attended by many users. 
 
-* Configuration
+### Built With
 
-* Database creation
+* [Ruby on Rails](https://rubyonrails.org/)
+* [Bootstrap](https://getbootstrap.com)
+* [Sass](https://sass-lang.com/)
 
-* Database initialization
+## Getting Started
 
-* How to run the test suite
+To get started with the app, clone the repo and then install the needed gems:
+```sh
+$ bundle install --without production
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Next, migrate the database:
+```sh
+$ rails db:migrate
+```
 
-* Deployment instructions
+Finally, run the app in a local server:
+```sh
+$ rails server
+```
 
-* ...
+## Contributors
+
+* [Tunde Oretade](https://github.com/tundeiness)
+* [Olga Pelts](https://github.com/pelzolga123)

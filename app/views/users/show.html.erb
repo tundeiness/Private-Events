@@ -1,0 +1,80 @@
+<% provide(:title, @user.name) %>
+
+<div class='main'>
+<div class='aside-col container'>
+<div class='row'>
+  <aside class='col-md-12'>
+    <section class='user_info'>
+    <%= gravatar_for @user %>
+      <h1> 
+        Welcome <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+
+  </div>
+<button type='button' class='btn btn-dark btn-lg'><%= link_to 'Create event', new_event_path %></button>
+</div>
+
+
+<div class='events-col container'>
+  <div class='row'>
+    <div class='col-md-12'>
+    <h2 class='events-header'> Events for <%= @user.name %></h2>
+    
+    <h3>Attending Events</h3>
+    <table class="table">  
+    <thead>
+     <tr>
+      <th  scope="col">Name</th>
+      <th  scope="col">Location</th>
+      <th  scope="col">Date</th>
+     </tr>
+    </thead>
+      <% @user.attended_events.each do |attended| %>
+
+
+       <tbody>
+        <tr>
+         <td><%= attended.title %></td>
+         <td><%= attended.location %></td>
+         <td><%= attended.date.strftime('%Y/%m/%d') %></td>
+        </tr>
+       </tbody> 
+      <% end %>
+      </table>  
+    <h3>Future Events</h3>
+ 
+    <% Event.upcoming.each do |event| %>
+      <div class='event'>
+        <h3 class='featurette-heading'><%= link_to event.title, event_path(event)%></h3>
+          <div class='event-body'>
+            <p><%= event.description%></p>
+            <div class='event-details'>
+            <span>Event location: <%= event.location%></span>
+            <span>Event date: <%= event.date.strftime('%Y/%m/%d')%></span>
+            </div>
+          </div>
+        </div>  
+    <% end %>
+
+    <h3>Past Events</h3>
+ 
+    <% Event.past.each do |event| %>
+      <div class='event'>
+        <h3 class='featurette-heading'><%=event.title%></h3>
+          <div class='event-body'>
+            <p><%= event.description%></p>
+            <div class='event-details'>
+            <span>Event location: <%= event.location%></span>
+            <span>Event date: <%= event.date.strftime('%Y/%m/%d')%></span>
+            </div>
+          </div>
+        </div>  
+    <% end %>
+
+  </div>
+</div> 
+</div>
+
+
